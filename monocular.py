@@ -5,7 +5,7 @@ import scipy.io as sio
 
 import torch
 
-from ..utils import download_file, ensure_dir, generate_xv_folds, shift_mat_zpad
+from utils import download_file, ensure_dir, generate_xv_folds, shift_mat_zpad
 
 from torch.utils.data import Dataset
 
