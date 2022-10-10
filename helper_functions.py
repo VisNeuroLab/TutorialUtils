@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.gridspec as gridspec
+import torch
 
 def conv_visualize(weights, num_inh_list=[0]):
     # let num_inh_list be num_inh for all prev layers, with ind -1 for visualized layer
@@ -100,7 +101,7 @@ def visualize_native_conv1d_layer(weights):
   plt.figure(figsize=(sx, sy))
   
   for cc in range(weights.shape[0]):
-      plt.subplot(sx, sy, cc+1)
+      plt.subplot(sy, sx, cc+1)
       plt.imshow(weights[cc, :, :], interpolation='none', aspect='auto')
 
   plt.tight_layout()
