@@ -100,7 +100,7 @@ def visualize_native_conv1d_layer(weights):
   sy = int(np.round(np.sqrt(weights.shape[0])))
 
   for cc in range(weights.shape[0]):
-      plt.subplot(sx, sy, cc)
+      plt.subplot(sx, sy, cc+1)
       plt.imshow(weights[cc, :, :], interpolation='none', aspect='auto')
 
   plt.tight_layout()
