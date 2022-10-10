@@ -1,3 +1,7 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.gridspec as gridspec
+
 def conv_visualize(weights, num_inh_list=[0]):
     # let num_inh_list be num_inh for all prev layers, with ind -1 for visualized layer
     
@@ -90,6 +94,17 @@ def eval_model(model, valid_dl):
 
     return LLneuron.detach().cpu().numpy()
 
+def visualize_native_conv1d_layer(weights):
+  plt.figure()
+  sx = int(np.ceil(np.sqrt(weights.shape[0])))
+  sy = int(np.round(np.sqrt(weights.shape[0])))
+
+  for cc in range(weights.shape[0]):
+      plt.subplot(sx, sy, cc)
+      plt.imshow(weights[cc, :, :], interpolation='none', aspect='auto')
+
+  plt.tight_layout()
+  
 def lin_visualize(weights, split=None, num_eni_list=[]):
     plt.figure()
     plt.subplot()
