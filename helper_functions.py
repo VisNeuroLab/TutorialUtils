@@ -95,10 +95,10 @@ def eval_model(model, valid_dl):
     return LLneuron.detach().cpu().numpy()
 
 def visualize_native_conv1d_layer(weights):
-  plt.figure()
   sx = int(np.ceil(np.sqrt(weights.shape[0])))
   sy = int(np.round(np.sqrt(weights.shape[0])))
-
+  plt.figure(figsize=(sx, sy))
+  
   for cc in range(weights.shape[0]):
       plt.subplot(sx, sy, cc+1)
       plt.imshow(weights[cc, :, :], interpolation='none', aspect='auto')
